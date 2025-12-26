@@ -1,0 +1,28 @@
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths-ignore:
+      - '.github/workflows/**'
+
+jobs:
+  test:
+    name: Terraform Test
+    if: github.repository != 'Tanchwa/terraform-module-template'
+    uses: Tanchwa/workflows-terraform-deployment/.github/workflows/terraform_test.yaml@main
+    secrets: #`pragma: allowlist secret`
+      EXAMPLE_SECRET: ${{ secrets.EXAMPLE_SECRET }} #`pragma: allowlist secret`
+      EXAMPLE_SECRET_2: ${{ secrets.EXAMPLE_SECRET_2 }} #`pragma: allowlist secret`
+      EXAMPLE_SECRET_3: ${{ secrets.EXAMPLE_SECRET_3 }} #`pragma: allowlist secret`
+      INFRACOST_API_KEY: ${{ secrets.INFRACOST_API_KEY }} #`pragma: allowlist secret`
+    permissions:
+      contents: read
+      pull-requests: write
+      id-token: write
+    with:
+      terraform_version: '1.12'
+      directory: '.'
+      test_level: 'unit'
+      environment: 'dev'
