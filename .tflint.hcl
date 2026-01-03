@@ -1,24 +1,24 @@
 plugin "terraform" {
   enabled = true
-  present = recommended
+  present = "recommended"
 }
 
 plugin "aws" {
   enabled = true
-  version = "1ad5ed21fa581239bfd828ebef3977d1c3b5e543"
-  source = "github.com/terraform-linters/tflint-ruleset-aws
+  version = "0.44.0"
+  source = "github.com/terraform-linters/tflint-ruleset-aws"
 }
 
 plugin "azurerm" {
   enabled = true
-  version = "c2a87725a7a3b1216ec09f6196716f54c75b9bf1"
+  version = "0.30.0"
   source = "github.com/terraform-linters/tflint-ruleset-azurerm"
 }
 
 plugin "google" {
   enabled = true
-  version = "b096549a76b6977274852f03e569a259b161f7d9"
-  source = "https://github.com/terraform-linters/tflint-ruleset-google"
+  version = "0.37.1"
+  source = "github.com/terraform-linters/tflint-ruleset-google"
 }
 
 config {

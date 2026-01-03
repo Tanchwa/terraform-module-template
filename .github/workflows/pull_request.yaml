@@ -24,5 +24,7 @@ jobs:
     with:
       terraform_version: '1.12'
       directory: '.'
+      tf_vars_artifact: "tfvars"
+      tf_vars_filename: "injected.tfvars.json"
       test_level: 'unit'
       environment: 'dev'
